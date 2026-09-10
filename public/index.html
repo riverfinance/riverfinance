@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>River Finance | Working Capital for Canadian Small Business</title>
+<meta name="description" content="River Finance provides fast, flexible working capital to Canadian small businesses — no collateral, decisions in as fast as 24 hours, repayment that flexes with your sales.">
+<meta name="theme-color" content="#0B2545">
+
+<meta property="og:title" content="River Finance | Working Capital for Canadian Small Business">
+<meta property="og:description" content="Fast, flexible funding for Canadian small businesses. No collateral. Decisions in as fast as 24 hours.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------------------------------------------------------
+     TOKENS
+  --------------------------------------------------------- */
+  :root{
+    --navy: #0B2545;
+    --navy-deep: #071A30;
+    --navy-soft: #16345C;
+
+    --teal: #1CB5A6;
+    --teal-dark: #148F84;
+    --teal-ink: #1CB5A6;      /* brand teal, used for text/icons */
+    --teal-tint: #E4F7F4;     /* light teal for badges/backgrounds */
+    --teal-on-dark: #6BE0D2;  /* light teal for labels on navy bg */
+
+    --ink: #33435A;
+    --ink-soft: #62748C;
+    --ink-faint: #8A9AAF;
+
+    --bg: #FFFFFF;
+    --bg-alt: #F5F8F9;
+    --line: #E3E9EC;
+
+    --font-display: 'Clash Display', 'General Sans', sans-serif;
+    --font-body: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-label: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --container: 1180px;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 2px rgba(11,37,69,0.06), 0 1px 1px rgba(11,37,69,0.04);
+    --shadow-md: 0 12px 32px -12px rgba(11,37,69,0.18);
+    --shadow-lg: 0 24px 60px -20px rgba(11,37,69,0.28);
+  }
+
+  /* ---------------------------------------------------------
+     RESET / BASE
+  --------------------------------------------------------- */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{ margin:0; font-family:var(--font-display); color:var(--navy); font-weight:600; letter-spacing:-0.01em; }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  :focus-visible{
+    outline: 2.5px solid var(--teal-dark);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  .wrap{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:var(--font-label);
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-ink);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:18px;height:2px;
+    background:var(--teal);
+    display:inline-block;
+  }
+  .eyebrow.on-dark{ color:var(--teal-on-dark); }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:3rem;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    margin-top:0.85rem;
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:1rem;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .section-head.center .eyebrow::before{ display:none; }
+
+  section{ padding:6.5rem 0; }
+  @media (max-width:720px){ section{ padding:4.25rem 0; } }
+
+  /* ---------------------------------------------------------
+     BUTTONS
+  --------------------------------------------------------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:0.9rem 1.6rem;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.98rem;
+    border:1.5px solid transparent;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn:active{ transform:translateY(0); }
+
+  .btn-accent{ background:var(--teal); color:var(--navy); }
+  .btn-accent:hover{ background:var(--teal-dark); box-shadow:var(--shadow-md); }
+
+  .btn-primary{ background:var(--navy); color:#fff; }
+  .btn-primary:hover{ background:var(--navy-soft); box-shadow:var(--shadow-md); }
+
+  .btn-ghost{ background:transparent; color:var(--navy); border-color:var(--line); }
+  .btn-ghost:hover{ border-color:var(--navy); }
+
+  .btn-ghost-light{ background:transparent; color:#fff; border-color:rgba(255,255,255,0.35); }
+  .btn-ghost-light:hover{ border-color:#fff; }
+
+  .btn-block{ width:100%; }
+
+  /* ---------------------------------------------------------
+     HEADER / NAV
+  --------------------------------------------------------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .site-header.scrolled{
+    border-bottom-color:var(--line);
+    box-shadow:0 4px 24px -12px rgba(11,37,69,0.12);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+  }
+  .brand{ display:flex; align-items:center; height:100%; }
+  .brand img{ height:34px; width:auto; }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:2.1rem;
+  }
+  .nav-links a{
+    font-size:0.94rem;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+    padding:6px 0;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute; left:0; right:100%; bottom:0;
+    height:2px; background:var(--teal);
+    transition:right 0.2s ease;
+  }
+  .nav-links a:hover::after{ right:0; }
+  .nav-links a:hover{ color:var(--navy); }
+
+  .nav-cta{ display:flex; align-items:center; gap:1.5rem; }
+
+  .nav-toggle{
+    display:none;
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    background:#fff;
+    align-items:center;
+    justify-content:center;
+  }
+  .nav-toggle span{
+    display:block;
+    width:16px; height:1.5px; background:var(--navy);
+    position:relative;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';
+    position:absolute; left:0;
+    width:16px; height:1.5px; background:var(--navy);
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle span::before{ top:-5px; }
+  .nav-toggle span::after{ top:5px; }
+  .nav-toggle[aria-expanded="true"] span{ background:transparent; }
+  .nav-toggle[aria-expanded="true"] span::before{ transform:translateY(5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::after{ transform:translateY(-5px) rotate(-45deg); }
+
+  .mobile-panel{
+    display:none;
+    position:fixed; inset:76px 0 0 0;
+    background:#fff;
+    z-index:99;
+    padding:2rem 32px;
+    overflow-y:auto;
+  }
+  .mobile-panel.open{ display:block; }
+  .mobile-panel a{
+    display:block;
+    font-family:var(--font-display);
+    font-size:1.5rem;
+    padding:0.75rem 0;
+    border-bottom:1px solid var(--line);
+    color:var(--navy);
+  }
+  .mobile-panel .btn{ margin-top:1.75rem; }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .nav-cta .btn{ display:none; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ---------------------------------------------------------
+     CONTACT MODAL
+  --------------------------------------------------------- */
+  .modal-overlay{
+    position:fixed; inset:0;
+    background:rgba(7,26,48,0.6);
+    z-index:200;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .modal-overlay[hidden]{ display:none; }
+  .modal{
+    background:#fff;
+    border-radius:20px;
+    padding:2.5rem;
+    max-width:460px;
+    width:100%;
+    max-height:88vh;
+    overflow-y:auto;
+    position:relative;
+    box-shadow:var(--shadow-lg);
+  }
+  .modal-close{
+    position:absolute;
+    top:1.25rem; right:1.25rem;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    background:#fff;
+    color:var(--navy);
+    font-size:1.3rem;
+    line-height:1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{ border-color:var(--navy); }
+  .modal h3{
+    font-size:1.5rem;
+    margin-top:0.75rem;
+    line-height:1.2;
+    padding-right:1.5rem;
+  }
+  .modal-sub{
+    margin-top:0.6rem;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  .contact-form{ margin-top:1.75rem; display:flex; flex-direction:column; gap:1.1rem; }
+  .contact-form label{
+    display:block;
+    font-size:0.85rem;
+    font-weight:500;
+    color:var(--navy);
+  }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;
+    margin-top:0.45rem;
+    padding:0.75rem 0.9rem;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-sm);
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    color:var(--ink);
+    background:var(--bg-alt);
+    transition:border-color 0.15s ease;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--teal);
+  }
+  .contact-form textarea{ resize:vertical; min-height:90px; }
+  .contact-form .btn{ margin-top:0.25rem; }
+  .hp-field{
+    position:absolute;
+    left:-9999px;
+    width:1px; height:1px;
+    overflow:hidden;
+  }
+  .form-status{
+    margin-top:0.9rem;
+    font-size:0.85rem;
+    text-align:center;
+    min-height:1.2em;
+  }
+  .form-status[data-state="sending"]{ color:var(--ink-faint); }
+  .form-status[data-state="success"]{ color:var(--teal-dark); font-weight:600; }
+  .form-status[data-state="error"]{ color:#C0392B; }
+
+  /* ---------------------------------------------------------
+     HERO
+  --------------------------------------------------------- */
+  .hero{
+    position:relative;
+    padding:5.5rem 0 4.5rem;
+    overflow:hidden;
+    background:
+      radial-gradient(60% 55% at 88% 8%, rgba(28,181,166,0.08), transparent 60%),
+      var(--bg);
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr;
+    z-index:1;
+  }
+  .hero-content{ max-width:660px; }
+  .hero h1{
+    font-size:clamp(2.5rem, 5.2vw, 4.1rem);
+    line-height:1.06;
+    margin-top:1.1rem;
+    letter-spacing:-0.02em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--teal-ink);
+  }
+  .hero-sub{
+    margin-top:1.5rem;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:540px;
+  }
+  .hero-actions{
+    margin-top:2.25rem;
+    display:flex;
+    align-items:center;
+    gap:1.25rem;
+    flex-wrap:wrap;
+  }
+  .hero-fineprint{
+    margin-top:1rem;
+    font-size:0.85rem;
+    color:var(--ink-faint);
+  }
+
+  .hero-river{
+    position:absolute;
+    right:-60px;
+    top:-20px;
+    width:440px;
+    max-width:42%;
+    z-index:0;
+    pointer-events:none;
+  }
+  .river-path{
+    stroke-dasharray:1700;
+    stroke-dashoffset:1700;
+    animation:draw 2.2s cubic-bezier(.4,0,.2,1) 0.15s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .river-node{
+    animation:pulse 2.6s ease-in-out infinite;
+    transform-origin:center;
+  }
+  .river-node:nth-child(3){ animation-delay:0.4s; }
+  .river-node:nth-child(4){ animation-delay:0.8s; }
+  @keyframes pulse{
+    0%,100%{ opacity:0.55; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.5); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .river-path{ animation:none; stroke-dashoffset:0; }
+    .river-node{ animation:none; }
+  }
+  @media (max-width:900px){
+    .hero-river{ display:none; }
+  }
+
+  /* stat / spec strip */
+  .spec-strip{
+    margin-top:3.5rem;
+    border-top:1px solid var(--line);
+    padding-top:1.75rem;
+    display:grid;
+    grid-template-columns:repeat(3,auto);
+    gap:2.5rem;
+    max-width:640px;
+  }
+  .spec-item .label{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .spec-item .value{
+    font-family:var(--font-label);
+    font-size:1.1rem;
+    font-weight:600;
+    color:var(--navy);
+    margin-top:0.4rem;
+  }
+  @media (max-width:760px){
+    .spec-strip{ grid-template-columns:repeat(2,1fr); gap:1.75rem 1.5rem; }
+  }
+
+  /* ---------------------------------------------------------
+     VALUE PROPS
+  --------------------------------------------------------- */
+  .value-props{ background:var(--bg-alt); }
+  .value-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5rem;
+    max-width:760px;
+  }
+  .value-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.9rem 1.6rem;
+  }
+  .value-card .icon{
+    width:38px;height:38px;
+    color:var(--teal-ink);
+  }
+  .value-card h3{
+    font-size:1.05rem;
+    margin-top:1.1rem;
+  }
+  .value-card p{
+    margin-top:0.55rem;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  @media (max-width:560px){ .value-grid{ grid-template-columns:1fr; } }
+
+  /* ---------------------------------------------------------
+     HOW IT WORKS
+  --------------------------------------------------------- */
+  .how-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2.25rem;
+    position:relative;
+    margin-top:1rem;
+  }
+  .how-grid::before{
+    content:'';
+    position:absolute;
+    top:27px;
+    left:12.5%;
+    right:12.5%;
+    height:0;
+    border-top:2px dashed var(--line);
+    z-index:0;
+  }
+  .how-num{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:var(--navy);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-label);
+    font-weight:600;
+    position:relative;
+    z-index:1;
+    box-shadow:0 0 0 6px #fff;
+  }
+  .how-step h3{
+    font-size:1.15rem;
+    margin-top:1.3rem;
+  }
+  .how-step p{
+    margin-top:0.5rem;
+    font-size:0.94rem;
+    color:var(--ink-soft);
+  }
+  @media (max-width:860px){
+    .how-grid{ grid-template-columns:1fr 1fr; row-gap:2.5rem; }
+    .how-grid::before{ display:none; }
+  }
+  @media (max-width:560px){ .how-grid{ grid-template-columns:1fr; } }
+
+  /* ---------------------------------------------------------
+     SOLUTION CARD
+  --------------------------------------------------------- */
+  .solutions{ background:var(--bg-alt); }
+  .solution-card{
+    background:var(--navy);
+    border-radius:20px;
+    padding:3.25rem;
+    color:#fff;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:2.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .solution-card::before{
+    content:'';
+    position:absolute;
+    right:-80px; top:-80px;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(28,181,166,0.28), transparent 70%);
+  }
+  .solution-card .tag{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--teal-on-dark);
+    background:rgba(28,181,166,0.14);
+    border:1px solid rgba(28,181,166,0.35);
+    padding:0.35rem 0.75rem;
+    border-radius:100px;
+    display:inline-block;
+  }
+  .solution-card h3{
+    color:#fff;
+    font-size:clamp(1.6rem,2.6vw,2.1rem);
+    margin-top:1rem;
+  }
+  .solution-card > div:first-child > p{
+    margin-top:1rem;
+    color:#B9C6D4;
+    font-size:1.02rem;
+    max-width:420px;
+  }
+  .solution-note{
+    margin-top:1.5rem;
+    font-size:0.85rem;
+    color:#8FA2B8;
+    border-left:2px solid var(--teal);
+    padding-left:0.9rem;
+    max-width:420px;
+  }
+  .solution-specs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5rem 1.25rem;
+    align-content:start;
+    position:relative;
+  }
+  .solution-specs div{
+    border-top:1px solid rgba(255,255,255,0.14);
+    padding-top:0.85rem;
+  }
+  .solution-specs .k{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.68rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:#8FA2B8;
+  }
+  .solution-specs .v{
+    margin-top:0.4rem;
+    font-size:1rem;
+    font-weight:600;
+    color:#fff;
+  }
+  .solution-card .btn{ margin-top:1.75rem; }
+  @media (max-width:860px){
+    .solution-card{ grid-template-columns:1fr; padding:2.25rem; }
+  }
+  @media (max-width:480px){
+    .solution-specs{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ---------------------------------------------------------
+     ELIGIBILITY
+  --------------------------------------------------------- */
+  .eligibility-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3.5rem;
+    align-items:center;
+  }
+  .check-list{ margin-top:1.75rem; display:flex; flex-direction:column; gap:1rem; }
+  .check-item{
+    display:flex; align-items:flex-start; gap:0.85rem;
+    font-size:1.02rem;
+    color:var(--ink);
+  }
+  .check-item svg{ flex-shrink:0; margin-top:2px; color:var(--teal-ink); }
+  .eligibility-note{
+    margin-top:1.5rem;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    background:var(--teal-tint);
+    border-radius:var(--radius-sm);
+    padding:0.9rem 1.1rem;
+  }
+  .eligibility-panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:2.25rem;
+    box-shadow:var(--shadow-md);
+  }
+  .eligibility-panel h3{ font-size:1.3rem; }
+  .eligibility-panel p{ margin-top:0.6rem; color:var(--ink-soft); font-size:0.95rem; }
+  .eligibility-panel .btn{ margin-top:1.5rem; }
+  .mini-spec{
+    margin-top:1.75rem;
+    display:flex;
+    justify-content:space-between;
+    border-top:1px solid var(--line);
+    padding-top:1.25rem;
+  }
+  .mini-spec div{ font-family:var(--font-label); font-weight:600; }
+  .mini-spec .label{ font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+  .mini-spec .value{ font-size:1.05rem; font-weight:600; color:var(--navy); margin-top:0.3rem; }
+
+  @media (max-width:860px){
+    .eligibility-inner{ grid-template-columns:1fr; }
+    .eligibility-panel{ order:-1; }
+  }
+
+  /* ---------------------------------------------------------
+     INDUSTRIES
+  --------------------------------------------------------- */
+  .industries{ background:var(--bg-alt); }
+  .industry-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1rem;
+  }
+  .industry-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:1.15rem 1rem;
+    display:flex; align-items:center; gap:0.75rem;
+    font-weight:500;
+    font-size:0.92rem;
+    color:var(--navy);
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .industry-card:hover{ border-color:var(--teal); transform:translateY(-2px); }
+  .industry-card svg{ color:var(--teal-ink); flex-shrink:0; }
+  @media (max-width:960px){ .industry-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:680px){ .industry-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:420px){ .industry-grid{ grid-template-columns:1fr; } }
+
+  /* ---------------------------------------------------------
+     ABOUT
+  --------------------------------------------------------- */
+  .about-inner{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:3.5rem;
+    align-items:start;
+  }
+  .about-inner h2{ font-size:clamp(1.7rem,3vw,2.3rem); margin-top:0.85rem; line-height:1.15; }
+  .about-copy p{ font-size:1.05rem; color:var(--ink-soft); }
+  .about-copy p + p{ margin-top:1.1rem; }
+  .about-points{ margin-top:2rem; display:flex; flex-direction:column; gap:1.1rem; }
+  .about-point{ display:flex; gap:0.9rem; }
+  .about-point .dot{ width:8px; height:8px; border-radius:50%; background:var(--teal); margin-top:8px; flex-shrink:0; }
+  .about-point b{ color:var(--navy); }
+  .about-point span{ color:var(--ink-soft); font-size:0.95rem; }
+  @media (max-width:860px){ .about-inner{ grid-template-columns:1fr; gap:2rem; } }
+
+  /* ---------------------------------------------------------
+     FAQ
+  --------------------------------------------------------- */
+  .faq-list{ max-width:800px; }
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-item summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1.5rem;
+    padding:1.5rem 0;
+    cursor:pointer;
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:1.08rem;
+    color:var(--navy);
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item .plus{
+    flex-shrink:0;
+    width:26px;height:26px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    position:relative;
+    transition:transform 0.2s ease, border-color .2s ease;
+  }
+  .faq-item .plus::before,.faq-item .plus::after{
+    content:'';
+    position:absolute; background:var(--navy);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .faq-item .plus::before{ width:10px; height:1.5px; }
+  .faq-item .plus::after{ width:1.5px; height:10px; transition:opacity 0.2s ease; }
+  .faq-item[open] .plus{ border-color:var(--teal); transform:rotate(180deg); }
+  .faq-item[open] .plus::after{ opacity:0; }
+  .faq-item p{
+    padding:0 0 1.6rem;
+    color:var(--ink-soft);
+    max-width:640px;
+    font-size:0.98rem;
+  }
+
+  /* ---------------------------------------------------------
+     CTA BANNER
+  --------------------------------------------------------- */
+  .cta-banner{
+    background:var(--navy-deep);
+    background-image:radial-gradient(60% 120% at 15% 0%, rgba(28,181,166,0.16), transparent 60%);
+    color:#fff;
+    text-align:center;
+  }
+  .cta-banner .eyebrow{ justify-content:center; }
+  .cta-banner .eyebrow::before{ display:none; }
+  .cta-banner h2{
+    color:#fff;
+    font-size:clamp(1.9rem,3.6vw,2.7rem);
+    margin-top:1rem;
+    max-width:620px;
+    margin-left:auto; margin-right:auto;
+  }
+  .cta-banner p{
+    margin-top:1rem;
+    color:#B9C6D4;
+    max-width:480px;
+    margin-left:auto; margin-right:auto;
+  }
+  .cta-banner .hero-actions{ justify-content:center; margin-top:2.25rem; }
+  .cta-banner .hero-fineprint{ text-align:center; color:#7488A0; }
+
+  /* ---------------------------------------------------------
+     FOOTER
+  --------------------------------------------------------- */
+  .site-footer{
+    background:var(--navy-deep);
+    color:#B9C6D4;
+    padding-top:4.5rem;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1fr;
+    gap:2.5rem;
+    padding-bottom:3rem;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand img{ height:58px; }
+  .footer-brand p{ margin-top:1rem; font-size:0.92rem; max-width:280px; color:#8FA2B8; }
+  .footer-col h4{
+    font-family:var(--font-label);
+    font-size:0.72rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:#8FA2B8;
+    font-weight:600;
+  }
+  .footer-col ul{ margin-top:1.1rem; display:flex; flex-direction:column; gap:0.75rem; }
+  .footer-col a{ font-size:0.92rem; color:#D7E0E8; }
+  .footer-col a:hover{ color:var(--teal-on-dark); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:1.5rem;
+    padding:2.25rem 0 2.75rem;
+    font-size:0.82rem;
+    color:#6E829B;
+  }
+  .footer-bottom .disclosure{ max-width:640px; line-height:1.6; }
+  .footer-bottom .legal-links{ display:flex; gap:1.25rem; flex-shrink:0; white-space:nowrap; }
+  .footer-bottom .legal-links a{ color:#8FA2B8; font-size:0.82rem; }
+  .footer-bottom .legal-links a:hover{ color:#fff; }
+
+  @media (max-width:860px){
+    .footer-top{ grid-template-columns:1fr 1fr; }
+    .footer-bottom{ flex-direction:column; }
+  }
+  @media (max-width:520px){
+    .footer-top{ grid-template-columns:1fr; }
+  }
+
+  /* ---------------------------------------------------------
+     SCROLL REVEAL
+  --------------------------------------------------------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* generic responsive text container */
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .hero-actions .btn{ width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand" aria-label="River Finance home">
+      <img src="assets/river-mark.png" alt="River Finance">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" class="js-open-contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-accent js-open-contact" href="#">Apply Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#how-it-works">How It Works</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#industries">Industries</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+  <a href="#" class="js-open-contact">Contact</a>
+  <a class="btn btn-accent btn-block js-open-contact" href="#">Apply Now</a>
+</div>
+
+<div class="modal-overlay" id="contactOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <button type="button" class="modal-close" id="contactClose" aria-label="Close contact form">&times;</button>
+    <span class="eyebrow">Get in touch</span>
+    <h3 id="contactModalTitle">Tell us about your business.</h3>
+    <p class="modal-sub">Send a few details and a funding specialist will follow up.</p>
+    <form id="contactForm" class="contact-form">
+      <label>Full name
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label>Business name
+        <input type="text" name="business" autocomplete="organization" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label>Phone
+        <input type="tel" name="phone" autocomplete="tel">
+      </label>
+      <label>What do you need funding for?
+        <textarea name="message" rows="4"></textarea>
+      </label>
+      <div class="hp-field" aria-hidden="true">
+        <label for="company_website">Leave this field blank</label>
+        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-accent btn-block" id="contactSubmitBtn">Send message</button>
+      <p class="form-status" id="contactStatus" role="status"></p>
+    </form>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+
+      <svg class="hero-river" viewBox="0 0 500 640" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="riverGrad" x1="20%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1CB5A6" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#1CB5A6" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <path class="river-path" d="M 460 8 C 380 70 428 148 350 190 C 250 240 302 320 210 360 C 118 400 150 480 88 520 C 48 545 40 582 18 630"
+              fill="none" stroke="url(#riverGrad)" stroke-width="3" stroke-linecap="round"/>
+        <circle class="river-node" cx="350" cy="190" r="5" fill="#1CB5A6"/>
+        <circle class="river-node" cx="210" cy="360" r="5" fill="#1CB5A6"/>
+        <circle class="river-node" cx="88" cy="520" r="5" fill="#1CB5A6"/>
+      </svg>
+
+      <div class="hero-content">
+        <span class="eyebrow">Canadian working capital</span>
+        <h1>Capital that moves at the <em>speed</em> of your business.</h1>
+        <p class="hero-sub">River Finance gives Canadian small businesses fast, flexible funding — no collateral, no lengthy bank process, and no waiting weeks for a decision you needed yesterday.</p>
+        <div class="hero-actions">
+          <a href="#eligibility" class="btn btn-accent">Check your eligibility</a>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+
+        <div class="spec-strip">
+          <div class="spec-item">
+            <div class="label">Funding range</div>
+            <div class="value">$10K&ndash;$500K</div>
+          </div>
+          <div class="spec-item">
+            <div class="label">Decision time</div>
+            <div class="value">As fast as 24 hrs</div>
+          </div>
+          <div class="spec-item">
+            <div class="label">Collateral</div>
+            <div class="value">None required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUE PROPS ============ -->
+  <section class="value-props">
+    <div class="wrap">
+      <div class="value-grid">
+        <div class="value-card reveal">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M6 8l6-5 6 5M6 16l6 5 6-5"/></svg>
+          <h3>Direct decisions</h3>
+          <p>A funding specialist reviews your file personally — no broker runaround, no reselling your application.</p>
+        </div>
+        <div class="value-card reveal">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 14h4"/></svg>
+          <h3>Transparent pricing</h3>
+          <p>You see your total cost before you sign — one flat figure, clearly stated. No hidden fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From application to funding, in four steps.</h2>
+        <p>No stacks of paperwork and no in-branch meetings. The whole process happens online, on your schedule.</p>
+      </div>
+
+      <div class="how-grid">
+        <div class="how-step reveal">
+          <div class="how-num">01</div>
+          <h3>Apply</h3>
+          <p>Tell us about your business. Takes about 5 minutes.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">02</div>
+          <h3>Review</h3>
+          <p>A funding specialist reviews your revenue and cash flow — not just a credit score.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">03</div>
+          <h3>Offer</h3>
+          <p>Get a clear, upfront offer: funding amount, total cost, and repayment structure. No surprises.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">04</div>
+          <h3>Fund</h3>
+          <p>Accept your offer and funds are deposited directly to your business account, as fast as 24 hours later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION ============ -->
+  <section class="solutions" id="solutions">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Funding solution</span>
+        <h2>One straightforward product, built around revenue.</h2>
+      </div>
+
+      <div class="solution-card reveal">
+        <div>
+          <span class="tag">Revenue Advance</span>
+          <h3>Working capital based on what your business earns — not what's on your balance sheet.</h3>
+          <p>A Revenue Advance provides a lump sum of capital in exchange for a fixed, agreed-upon portion of your future sales. It's a purchase of future receivables, not a loan — so there's no interest rate to calculate, just one clear total cost agreed before you sign.</p>
+          <p class="solution-note">River Finance provides a purchase of future receivables (revenue-based financing). This is not a traditional business loan.</p>
+          <a href="#" class="btn btn-accent js-open-contact">Apply for a Revenue Advance</a>
+        </div>
+        <div class="solution-specs">
+          <div>
+            <div class="k">Funding amount</div>
+            <div class="v">$10,000&ndash;$500,000</div>
+          </div>
+          <div>
+            <div class="k">Term</div>
+            <div class="v">3&ndash;18 months</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ELIGIBILITY ============ -->
+  <section id="eligibility">
+    <div class="wrap eligibility-inner">
+      <div>
+        <span class="eyebrow">Do you qualify?</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.3rem); margin-top:0.85rem; color:var(--navy); line-height:1.15;">Most Canadian small businesses do.</h2>
+        <div class="check-list">
+          <div class="check-item reveal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Your business operates in Canada</span>
+          </div>
+          <div class="check-item reveal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You've been operating for 6+ months</span>
+          </div>
+          <div class="check-item reveal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You generate $10,000+ in average monthly revenue</span>
+          </div>
+          <div class="check-item reveal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You have an active business bank account</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="eligibility-panel reveal">
+        <h3>See what your business could qualify for.</h3>
+        <p>Reach out with a few basics — time in business, monthly revenue, and what you need the funding for — and a funding specialist will follow up with your options.</p>
+        <a href="#" class="btn btn-accent btn-block js-open-contact">Start your application</a>
+        <div class="mini-spec">
+          <div>
+            <div class="label">Response time</div>
+            <div class="value">Same business day</div>
+          </div>
+          <div>
+            <div class="label">Cost to apply</div>
+            <div class="value">Free, no obligation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INDUSTRIES ============ -->
+  <section class="industries" id="industries">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Industries</span>
+        <h2>Built for how Canadian businesses actually operate.</h2>
+        <p>Some of the industries we fund.</p>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><circle cx="8.5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="15.5" cy="12" r="1"/><circle cx="8.5" cy="16" r="1"/><circle cx="12" cy="16" r="1"/><circle cx="15.5" cy="16" r="1"/></svg>Accounting / Tax</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21V10M12 10c-3 0-5-2-5-5 3 0 5 2 5 5zm0 0c3 0 5-2 5-5-3 0-5 2-5 5zM12 15c-2.2 0-4-1.6-4-4 2.2 0 4 1.6 4 4zm0 0c2.2 0 4-1.6 4-4-2.2 0-4 1.6-4 4z"/></svg>Agriculture</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.8 2.8-2-2 2.8-2.8z"/></svg>Auto Repair</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>Beauty</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 17a8 8 0 0116 0"/><rect x="2" y="17" width="20" height="2.5" rx="1.2"/><path d="M12 6v4"/></svg>Construction</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg>Consulting</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-3 0-5 1.8-5 4.5 0 2 .7 3 .9 5.3.2 2 .6 4.2 2 4.2.9 0 1-1.6 1.1-2.7.1-.7.9-.7 1 0 .1 1.1.2 2.7 1.1 2.7 1.4 0 1.8-2.2 2-4.2.2-2.3.9-3.3.9-5.3C17 4.8 15 3 12 3z"/></svg>Dental</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12.5A2 2 0 009.5 17h8a2 2 0 002-1.6L21 8H6"/></svg>E-Commerce</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10l1-6h14l1 6"/><path d="M4 10v9a1 1 0 001 1h14a1 1 0 001-1v-9"/><path d="M9 20v-6h6v6"/></svg>Franchise</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9h16l-1.6 8.5a2 2 0 01-2 1.5H7.6a2 2 0 01-2-1.5L4 9z"/><path d="M7 9a5 5 0 0110 0"/><circle cx="12" cy="6" r="1.2"/></svg>Grocery</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.35-9.5-8.5C.8 8.6 3 5 6.5 5c2 0 3.2 1 5.5 3.5C14.3 6 15.5 5 17.5 5 21 5 23.2 8.6 21.5 12.5 19 16.65 12 21 12 21z"/></svg>Healthcare</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4c-.6-2.7-2.6-4.4-5-3.9-1 3 .3 5.6 3 6.4M12 10.4c2.4-1.2 5-.5 5.9 1.8-1.5 2.8-4.3 3.3-6.4 1.6M12 13.6c.6 2.7 2.6 4.4 5 3.9 1-3-.3-5.6-3-6.4M12 13.6c-2.4 1.2-5 .5-5.9-1.8 1.5-2.8 4.3-3.3 6.4-1.6"/></svg>HVAC</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Insurance</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V10l6-4 6 4v11M9 21V13h6v8M15 10l6-4v15h-6"/></svg>Manufacturing</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10v4a1 1 0 001 1h2l4 4V5L6 9H4a1 1 0 00-1 1z"/><path d="M14 6a6 6 0 010 12M17 9a3 3 0 010 6"/></svg>Marketing</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>Real Estate</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 3v8m4-8v8m-4 0h4m3-8v18M17 3c-1.5 2-1.5 4 0 6v10"/></svg>Restaurants</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18l-1.5 12a2 2 0 01-2 1.8H6.5a2 2 0 01-2-1.8L3 7zM8 7V5a4 4 0 018 0v2"/></svg>Retail</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Solar</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1 20h22"/></svg>Technology</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 16V8a1 1 0 011-1h10v9M14 10h4l3 3v3h-2M3 16a2 2 0 104 0 2 2 0 00-4 0zm12 0a2 2 0 104 0 2 2 0 00-4 0z"/></svg>Trucking</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="8" r="1.6"/><circle cx="11.5" cy="6" r="1.6"/><circle cx="16" cy="8" r="1.6"/><circle cx="18.5" cy="12" r="1.6"/><path d="M12 12c-3 0-5.5 2-5.5 4.5S8.5 20 12 20s5.5-1 5.5-3.5S15 12 12 12z"/></svg>Veterinary</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg>Wholesale</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap about-inner">
+      <div>
+        <span class="eyebrow">About River Finance</span>
+        <h2>A faster, clearer path to capital.</h2>
+      </div>
+      <div class="about-copy">
+        <p>River Finance exists because the traditional bank process wasn't built for how small businesses actually move — a seasonal inventory buy, a payroll gap, an equipment breakdown that can't wait six weeks for a loan committee.</p>
+        <p>We fund based on how a business is actually performing, not just what's on paper. That means looking at real revenue and cash flow, giving a clear answer quickly, and being upfront about the full cost before anyone signs anything.</p>
+        <div class="about-points">
+          <div class="about-point reveal">
+            <span class="dot"></span>
+            <span><b>Revenue-first underwriting.</b> <span>Your bank activity tells us more than a credit score ever could.</span></span>
+          </div>
+          <div class="about-point reveal">
+            <span class="dot"></span>
+            <span><b>Plain-language offers.</b> <span>Total cost and repayment terms, stated clearly, before you commit.</span></span>
+          </div>
+          <div class="about-point reveal">
+            <span class="dot"></span>
+            <span><b>A specialist, not a call queue.</b> <span>One point of contact who knows your file.</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" style="background:var(--bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is this a loan?<span class="plus"></span></summary>
+          <p>No. River Finance provides revenue-based financing — a purchase of a fixed portion of your future sales, repaid as your business earns. There's no interest rate to calculate; you're quoted one fixed total cost upfront.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast can I get funded?<span class="plus"></span></summary>
+          <p>Most approved applicants receive funds within 24 hours of accepting their offer, once all required documentation is confirmed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What can I use the funding for?<span class="plus"></span></summary>
+          <p>Anything your business needs — payroll, inventory, equipment, marketing, expansion, or covering a short-term cash flow gap.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if my business has less-than-perfect credit?<span class="plus"></span></summary>
+          <p>We weigh your business's cash flow and revenue more heavily than a personal credit score, so approval doesn't hinge on a perfect credit history.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do repayments work?<span class="plus"></span></summary>
+          <p>Repayments are collected daily or weekly.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section class="cta-banner">
+    <div class="wrap">
+      <span class="eyebrow on-dark">Ready when you are</span>
+      <h2>See what your business qualifies for.</h2>
+      <p>No obligation.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-accent js-open-contact">Check your eligibility</a>
+        <a href="#faq" class="btn btn-ghost-light">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo-white-tight.png" alt="River Finance">
+        <p>Fast, transparent working capital for Canadian small businesses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#solutions">Revenue Advance</a></li>
+          <li><a href="#eligibility">Check Eligibility</a></li>
+          <li><a href="#industries">Industries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#" class="js-open-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@riverfinance.ca">hello@riverfinance.ca</a></li>
+          <li><a href="tel:">[Add phone number]</a></li>
+          <li><span style="font-size:0.92rem; color:#8FA2B8;">[Add business address], Canada</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclosure">River Finance provides a purchase of future receivables (revenue-based financing) and does not offer traditional loans. All funding offers are subject to review of business financials and are not guaranteed. &copy; <span id="year"></span> River Finance. All rights reserved.</p>
+      <div class="legal-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll shadow
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  navToggle.addEventListener('click', () => {
+    const open = mobilePanel.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobilePanel.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact modal
+  const contactOverlay = document.getElementById('contactOverlay');
+  const contactClose = document.getElementById('contactClose');
+  const contactForm = document.getElementById('contactForm');
+
+  function openContact(e){
+    if (e) e.preventDefault();
+    contactOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    const statusEl = document.getElementById('contactStatus');
+    if (statusEl) { statusEl.textContent = ''; statusEl.removeAttribute('data-state'); }
+    const submitBtn = document.getElementById('contactSubmitBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    const firstField = contactForm.querySelector('input');
+    if (firstField) firstField.focus();
+  }
+  function closeContact(){
+    contactOverlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.js-open-contact').forEach(el => {
+    el.addEventListener('click', openContact);
+  });
+  contactClose.addEventListener('click', closeContact);
+  contactOverlay.addEventListener('click', (e) => {
+    if (e.target === contactOverlay) closeContact();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !contactOverlay.hidden) closeContact();
+  });
+
+  const contactStatus = document.getElementById('contactStatus');
+  const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    contactSubmitBtn.disabled = true;
+    contactStatus.dataset.state = 'sending';
+    contactStatus.textContent = 'Sending…';
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(contactForm),
+      });
+      const result = await response.json().catch(() => ({ ok: false }));
+
+      if (response.ok && result.ok) {
+        contactStatus.dataset.state = 'success';
+        contactStatus.textContent = "Thanks — we've got your message and will follow up shortly.";
+        contactForm.reset();
+        setTimeout(closeContact, 2200);
+      } else {
+        contactStatus.dataset.state = 'error';
+        contactStatus.textContent = result.error || 'Something went wrong. Please try again.';
+        contactSubmitBtn.disabled = false;
+      }
+    } catch (err) {
+      contactStatus.dataset.state = 'error';
+      contactStatus.textContent = 'Could not reach the server. Please check your connection and try again.';
+      contactSubmitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
