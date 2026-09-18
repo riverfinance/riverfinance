@@ -2,12 +2,11 @@
 // Handles POST /api/contact itself; everything else falls through to the
 // static site in /public via the ASSETS binding.
 
-const RECIPIENT = 'hello@riverfinance.ca';
+const RECIPIENT = 'info@riverfinance.ca';
 
-// Until riverfinance.ca is verified as a sending domain in Resend, mail
-// must be sent "from" this address. Once the domain is verified, switch
-// this to something like 'River Finance <forms@riverfinance.ca>'.
-const SENDER = 'River Finance <onboarding@resend.dev>';
+// riverfinance.ca is verified in Resend, so mail sends from a real address
+// on the domain instead of the shared resend.dev testing address.
+const SENDER = 'River Finance <forms@riverfinance.ca>';
 
 function escapeHtml(str) {
   return String(str)
