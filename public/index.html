@@ -863,6 +863,8 @@
     .hero-actions .btn{ width:100%; }
   }
 </style>
+<link rel="stylesheet" href="assets/redesign.css">
+<script src="assets/redesign.js" defer></script>
 </head>
 <body>
 
@@ -873,15 +875,15 @@
       <img src="assets/logo-full-navy.png" alt="River Finance">
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#how-it-works">How It Works</a>
-      <a href="#solutions">Solutions</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#solutions">Funding</a>
       <a href="#industries">Industries</a>
-      <a href="#about">About</a>
+      <a href="#about">About us</a>
       <a href="#faq">FAQ</a>
       <a href="#" class="js-open-contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-accent js-open-contact" href="#">Apply Now</a>
+      <a class="btn btn-accent js-open-contact" href="#">Explore funding ↗</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobilePanel">
         <span></span>
       </button>
@@ -890,13 +892,13 @@
 </header>
 
 <div class="mobile-panel" id="mobilePanel">
-  <a href="#how-it-works">How It Works</a>
-  <a href="#solutions">Solutions</a>
+  <a href="#how-it-works">How it works</a>
+  <a href="#solutions">Funding</a>
   <a href="#industries">Industries</a>
-  <a href="#about">About</a>
+  <a href="#about">About us</a>
   <a href="#faq">FAQ</a>
   <a href="#" class="js-open-contact">Contact</a>
-  <a class="btn btn-accent btn-block js-open-contact" href="#">Apply Now</a>
+  <a class="btn btn-accent btn-block js-open-contact" href="#">Explore funding ↗</a>
 </div>
 
 <div class="modal-overlay" id="contactOverlay" hidden>
@@ -933,50 +935,36 @@
 
 <main>
 
-  <!-- ============ HERO ============ -->
   <section class="hero" id="home">
     <div class="wrap hero-grid">
-
-      <svg class="hero-river" viewBox="0 0 500 640" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="riverGrad" x1="20%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#1CB5A6" stop-opacity="0.95"/>
-            <stop offset="100%" stop-color="#1CB5A6" stop-opacity="0.12"/>
-          </linearGradient>
-        </defs>
-        <path class="river-path" d="M 460 8 C 380 70 428 148 350 190 C 250 240 302 320 210 360 C 118 400 150 480 88 520 C 48 545 40 582 18 630"
-              fill="none" stroke="url(#riverGrad)" stroke-width="3" stroke-linecap="round"/>
-        <circle class="river-node" cx="350" cy="190" r="5" fill="#1CB5A6"/>
-        <circle class="river-node" cx="210" cy="360" r="5" fill="#1CB5A6"/>
-        <circle class="river-node" cx="88" cy="520" r="5" fill="#1CB5A6"/>
-      </svg>
-
       <div class="hero-content">
-        <span class="eyebrow">Canadian working capital</span>
-        <h1>Capital that moves at the <em>speed</em> of your business.</h1>
-        <p class="hero-sub">River Finance gives Canadian small businesses fast, flexible funding — no collateral, no lengthy bank process, and no waiting weeks for a decision you needed yesterday.</p>
+        <span class="eyebrow">Funding that keeps business moving</span>
+        <h1>Working capital for <em>Canadian businesses.</em></h1>
+        <p class="hero-sub">Funding from $10,000 to $500,000 for inventory, payroll, and the opportunities that can't wait.</p>
         <div class="hero-actions">
-          <a href="#eligibility" class="btn btn-accent">Check your eligibility</a>
-          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+          <a href="#eligibility" class="btn btn-accent">Check your eligibility <span aria-hidden="true">↗</span></a>
+          <a href="#how-it-works" class="hero-link">Explore the process <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="spec-strip">
-          <div class="spec-item">
-            <div class="label">Funding range</div>
-            <div class="value">$10K&ndash;$500K</div>
-          </div>
-          <div class="spec-item">
-            <div class="label">Decision time</div>
-            <div class="value">As fast as 24 hrs</div>
-          </div>
-          <div class="spec-item">
-            <div class="label">Collateral</div>
-            <div class="value">None required</div>
-          </div>
-        </div>
+      </div>
+      <div class="funding-panel">
+        <span class="eyebrow">Make room for what's next</span>
+        <label class="funding-label" for="fundingAmount">How much capital are you looking for?</label>
+        <output class="funding-amount" id="fundingDisplay" for="fundingAmount">$75,000</output>
+        <input id="fundingAmount" class="funding-range" type="range" min="10000" max="500000" step="5000" value="75000" aria-valuetext="75,000 Canadian dollars">
+        <div class="funding-limits"><span>$10,000</span><span>$500,000</span></div>
+        <dl class="funding-facts">
+          <div><dt>Funding structure</dt><dd>Revenue-based</dd></div>
+          <div><dt>Funding term</dt><dd>3–18 months</dd></div>
+        </dl>
+        <a class="btn btn-accent btn-block js-open-contact" id="fundingOptions" href="#">Explore my options <span aria-hidden="true">↗</span></a>
+        <p class="funding-note">Explore an amount, not an approval estimate. All offers are subject to review of your business financials.</p>
       </div>
     </div>
   </section>
+  <div class="qualification-strip">
+    <div class="wrap"><strong>A few basics to get started</strong><span>Canadian business</span><span>6+ months operating</span><span>$10K+ monthly revenue</span></div>
+  </div>
+
 
   <!-- ============ VALUE PROPS ============ -->
   <section class="value-props">
@@ -1029,6 +1017,19 @@
       </div>
     </div>
   </section>
+
+  <section class="use-cases" aria-labelledby="useCasesTitle">
+    <div class="wrap use-cases-grid">
+      <div><span class="eyebrow">Capital with a purpose</span><h2 id="useCasesTitle">What comes next<br>for your business?</h2><p>Room to handle today. Freedom to plan tomorrow.</p></div>
+      <div class="use-case-links">
+        <a class="js-open-contact" href="#"><span><b>Stock up on inventory</b><small>Be ready for your next busy season.</small></span><span aria-hidden="true">↗</span></a>
+        <a class="js-open-contact" href="#"><span><b>Cover payroll</b><small>Keep your team moving forward.</small></span><span aria-hidden="true">↗</span></a>
+        <a class="js-open-contact" href="#"><span><b>Upgrade equipment</b><small>Put the right tools to work.</small></span><span aria-hidden="true">↗</span></a>
+        <a class="js-open-contact" href="#"><span><b>Take on a new project</b><small>Make room for your next opportunity.</small></span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ============ SOLUTION ============ -->
   <section class="solutions" id="solutions">
@@ -1113,14 +1114,20 @@
         <p>Some of the industries we fund.</p>
       </div>
       <div class="industry-grid">
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 17a8 8 0 0116 0"/><rect x="2" y="17" width="20" height="2.5" rx="1.2"/><path d="M12 6v4"/></svg>Construction</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12.5A2 2 0 009.5 17h8a2 2 0 002-1.6L21 8H6"/></svg>E-Commerce</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 3v8m4-8v8m-4 0h4m3-8v18M17 3c-1.5 2-1.5 4 0 6v10"/></svg>Restaurants</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18l-1.5 12a2 2 0 01-2 1.8H6.5a2 2 0 01-2-1.8L3 7zM8 7V5a4 4 0 018 0v2"/></svg>Retail</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1 20h22"/></svg>Technology</div>
+        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 16V8a1 1 0 011-1h10v9M14 10h4l3 3v3h-2M3 16a2 2 0 104 0 2 2 0 00-4 0zm12 0a2 2 0 104 0 2 2 0 00-4 0z"/></svg>Trucking</div>
+      </div>
+      <details class="industry-more"><summary>View all industries</summary><div class="industry-grid">
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><circle cx="8.5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="15.5" cy="12" r="1"/><circle cx="8.5" cy="16" r="1"/><circle cx="12" cy="16" r="1"/><circle cx="15.5" cy="16" r="1"/></svg>Accounting / Tax</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21V10M12 10c-3 0-5-2-5-5 3 0 5 2 5 5zm0 0c3 0 5-2 5-5-3 0-5 2-5 5zM12 15c-2.2 0-4-1.6-4-4 2.2 0 4 1.6 4 4zm0 0c2.2 0 4-1.6 4-4-2.2 0-4 1.6-4 4z"/></svg>Agriculture</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.8 2.8-2-2 2.8-2.8z"/></svg>Auto Repair</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>Beauty</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 17a8 8 0 0116 0"/><rect x="2" y="17" width="20" height="2.5" rx="1.2"/><path d="M12 6v4"/></svg>Construction</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg>Consulting</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-3 0-5 1.8-5 4.5 0 2 .7 3 .9 5.3.2 2 .6 4.2 2 4.2.9 0 1-1.6 1.1-2.7.1-.7.9-.7 1 0 .1 1.1.2 2.7 1.1 2.7 1.4 0 1.8-2.2 2-4.2.2-2.3.9-3.3.9-5.3C17 4.8 15 3 12 3z"/></svg>Dental</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12.5A2 2 0 009.5 17h8a2 2 0 002-1.6L21 8H6"/></svg>E-Commerce</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10l1-6h14l1 6"/><path d="M4 10v9a1 1 0 001 1h14a1 1 0 001-1v-9"/><path d="M9 20v-6h6v6"/></svg>Franchise</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9h16l-1.6 8.5a2 2 0 01-2 1.5H7.6a2 2 0 01-2-1.5L4 9z"/><path d="M7 9a5 5 0 0110 0"/><circle cx="12" cy="6" r="1.2"/></svg>Grocery</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.35-9.5-8.5C.8 8.6 3 5 6.5 5c2 0 3.2 1 5.5 3.5C14.3 6 15.5 5 17.5 5 21 5 23.2 8.6 21.5 12.5 19 16.65 12 21 12 21z"/></svg>Healthcare</div>
@@ -1129,14 +1136,10 @@
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V10l6-4 6 4v11M9 21V13h6v8M15 10l6-4v15h-6"/></svg>Manufacturing</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10v4a1 1 0 001 1h2l4 4V5L6 9H4a1 1 0 00-1 1z"/><path d="M14 6a6 6 0 010 12M17 9a3 3 0 010 6"/></svg>Marketing</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>Real Estate</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 3v8m4-8v8m-4 0h4m3-8v18M17 3c-1.5 2-1.5 4 0 6v10"/></svg>Restaurants</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18l-1.5 12a2 2 0 01-2 1.8H6.5a2 2 0 01-2-1.8L3 7zM8 7V5a4 4 0 018 0v2"/></svg>Retail</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Solar</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1 20h22"/></svg>Technology</div>
-        <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 16V8a1 1 0 011-1h10v9M14 10h4l3 3v3h-2M3 16a2 2 0 104 0 2 2 0 00-4 0zm12 0a2 2 0 104 0 2 2 0 00-4 0z"/></svg>Trucking</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="8" r="1.6"/><circle cx="11.5" cy="6" r="1.6"/><circle cx="16" cy="8" r="1.6"/><circle cx="18.5" cy="12" r="1.6"/><path d="M12 12c-3 0-5.5 2-5.5 4.5S8.5 20 12 20s5.5-1 5.5-3.5S15 12 12 12z"/></svg>Veterinary</div>
         <div class="industry-card reveal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg>Wholesale</div>
-      </div>
+      </div></details>
     </div>
   </section>
 
@@ -1203,10 +1206,12 @@
   <!-- ============ CTA BANNER ============ -->
   <section class="cta-banner">
     <div class="wrap">
+      <div>
       <span class="eyebrow on-dark">Ready when you are</span>
       <h2>See what your business qualifies for.</h2>
       <p>No obligation.</p>
-      <div class="hero-actions">
+      </div>
+      <div class="hero-actions cta-actions">
         <a href="#" class="btn btn-accent js-open-contact">Check your eligibility</a>
         <a href="#faq" class="btn btn-ghost-light">Read the FAQ</a>
       </div>
